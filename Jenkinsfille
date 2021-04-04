@@ -9,6 +9,6 @@ node {
 
    
     stage('Start') {
-           sh "npm start"
+           sh "npm build"
     }
 }
