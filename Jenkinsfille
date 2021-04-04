@@ -8,7 +8,11 @@ node {
     }
 
    
+<<<<<<< HEAD
     stage('build') {
+=======
+    stage('Start') {
+>>>>>>> 47ccbe97e02fc50a6713227af21f17d929678a58
            sh "npm build"
     }
 }
