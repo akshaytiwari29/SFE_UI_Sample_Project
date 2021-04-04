@@ -1,0 +1,28 @@
+
+<h2>Incident List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Incident Id</th>
+            <th> Customer Name </th>
+            <th> Customer Request Id</th>
+            <th> Issue Description </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let incident of incidents" >
+            <td> {{ incident.incident_id }} </td>
+            <td> {{ incident.customer_name}} </td>
+            <td> {{ incident.customer_requestid }} </td>
+            <td> {{ incident.issue_Description }} </td>
+            <td>
+                <button (click)="deleteIncident(incident.incident_id)" class = "btn btn-info" >Delete</button>
+              <button (click) = "updateIncident(incident.incident_id)" class = "btn btn-info" >Update</button>
+               <!--   <button (click) = deleteIncident(incident.incident_id) class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = getIncidentById(incident.incident_id) class = "btn btn-info" style="margin-left: 10px"> View</button> -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+

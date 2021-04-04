@@ -1,0 +1,72 @@
+version: '3.7'
+
+# Define services
+services:
+  
+  # Frontend Service 
+  sfe-client:
+    network_mode: bridge
+    container_name: sfe-client
+    image: sfe-client
+    build: 
+      context: ./
+      dockerfile: frontend.Dockerfile    
+    ports:
+      - "4200:4200" 
+    expose:
+      - 4200
+    depends_on:
+      - ecare  
+  docker-nginx:
+    network_mode: bridge
+    container_name: docker-nginx
+    build: 
+      context: ./
+      dockerfile: frontend.Dockerfile
+    ports: 
+       - "80:80"  
+    expose:
+        - 80    
+    command: ["nginx", "-g", "daemon off;" ] 
+    links: 
+       -  sfe-client    
+     
+  ecare:
+    network_mode: bridge
+
+    image: ecare
+    build:
+      context: ./
+      dockerfile: backend.Dockerfile
+    container_name: ecare
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_PROFILES_ACTIVE=dev
+      
+          
+  db:
+    network_mode: bridge
+
+    image: 'postgres:13.1-alpine'    
+    container_name: db    
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=postgres
+      - dbhost=db
+             

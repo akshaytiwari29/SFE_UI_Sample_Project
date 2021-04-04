@@ -1,0 +1,32 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Incident </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> Incident Id</label>
+            <input type="text" class ="form-control" id = "firstName"
+                [(ngModel)] = "incident.incident_id" name = "firstName">
+        </div>
+    
+        <div class="form-group">
+            <label> Customer Rrequest Id</label>
+            <input type="text" class ="form-control" id = "customer_requestid"
+                [(ngModel)] = "incident.customer_requestid" name = "customer_requestid">
+        </div>
+    
+        <div class="form-group">
+            <label> Customer Name</label>
+            <input type="text" class ="form-control" id = "customer_name"
+                [(ngModel)] = "incident.customer_name" name = "customer_name">
+        </div>
+    
+        <div class="form-group">
+            <label> Issue Description</label>
+            <input type="text" class ="form-control" id = "issue_Description"
+                [(ngModel)] = "incident.issue_Description" name = "issue_Description">
+        </div>
+
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 
