@@ -23,5 +23,4 @@ COPY --from=builder /app/dist/SFEClient /usr/share/nginx/html
 
 # FROM nginx:1.17.1-alpine
 # COPY --from=build-step /app/dist/SFEClient /usr/share/nginx/html
-##suruchi comit for jenkins
-####su
+##suruchi comit for jenkins==============
