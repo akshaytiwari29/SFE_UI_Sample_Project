@@ -7,11 +7,8 @@ node {
            sh "npm install"
     }
 
-    stage('Build') {
-           sh "npm run build"
-    }
-
-      stage('Start') {
+   
+    stage('Start') {
            sh "npm start"
     }
 }
