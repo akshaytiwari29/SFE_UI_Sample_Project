@@ -23,7 +23,4 @@ COPY --from=builder /app/dist/SFEClient /usr/share/nginx/html
 
 # FROM nginx:1.17.1-alpine
 # COPY --from=build-step /app/dist/SFEClient /usr/share/nginx/html
-<<<<<<< HEAD
-=======
-##suruchi 
->>>>>>> 47ccbe97e02fc50a6713227af21f17d929678a58
+
