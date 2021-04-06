@@ -28,10 +28,11 @@ node {
 
     stage('Build') {
       
-        sh 'ng build '
+        sh 'npm run build '
     }
 
  stage('Run') {
+        sh 'npm start'
         sh 'ng serve'
     }
 }
