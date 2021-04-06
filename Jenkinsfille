@@ -31,8 +31,5 @@ node {
         sh 'npm run build '
     }
 
- stage('Run') {
-        sh 'npm start'
-        sh 'ng serve'
-    }
+
 }
