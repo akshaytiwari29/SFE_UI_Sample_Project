@@ -33,7 +33,7 @@ node {
 
  stage('Deploy') {
       
-        sh 'npm i -g http-server --save '
+        sh 'sudo npm i -g http-server --save '
         sh 'http-server ./dist/SFEClient'
     }
 
