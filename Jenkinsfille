@@ -31,5 +31,10 @@ node {
         sh 'npm run build '
     }
 
+ stage('Deploy') {
+      
+        sh 'npm i -g http-server --save '
+        sh 'http-server ./dist/SFEClient'
+    }
 
 }
