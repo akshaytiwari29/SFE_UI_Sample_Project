@@ -27,8 +27,8 @@ node {
 
     
     stage('Run') {
-      
-        sh 'nohup ng serve 2>&1 >> /var/log/ng.log & '
+        sh 'sudo npm install -g @angular/cli'
+        sh 'nohup ng serve & '
         
     }
 
