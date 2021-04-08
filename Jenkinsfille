@@ -25,16 +25,11 @@ node {
     }
 
 
-
-    stage('Build') {
+    
+    stage('Run') {
       
-        sh 'npm run build '
-    }
-
- stage('Deploy') {
-      
-        sh 'sudo npm i -g http-server --save '
-        sh 'http-server ./dist/SFEClient'
+        sh 'nohup ng serve 2>&1 >> /var/log/ng.log & '
+        
     }
 
 }
