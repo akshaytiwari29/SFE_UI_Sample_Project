@@ -1,6 +1,6 @@
 FROM node:14.16.0-alpine as builder
 WORKDIR /app
-COPY package.json .
+COPY package*.json .
 
 COPY . .
 RUN npm install
@@ -10,7 +10,7 @@ CMD ["npm"  "start"]
 
 
 FROM nginx:1.17.1-alpine
-COPY src/nginx/etc/conf.d/default.conf /etc/nginx/conf/default.conf
+COPY src/nginx/etc/conf.d/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist/SFEClient /usr/share/nginx/html
 
 # FROM node:12-alpine as build-step
